@@ -27,25 +27,26 @@ export function Player () {
   }
 
   return (
-    <div className='flex flex-row justify-between w-full px-4 z-50'>
+    <div className='flex justify-between w-full px-4 z-50'>
 
-      <div>
+      <div className='flex flex-col place-content-center'>
         current song
       </div>
 
-      <div className='flex place-content-center gap-4 flex-1'>
+      <div className='flex flex-col place-content-center gap-4 flex-1'>
         <div className='flex flex-col items-center justify-center gap-3'>
           <button className='bg-white rounded-full p-3 scale-95 transform hover:scale-100 transition-transform ' onClick={handleClick}>
             {isPlaying ? <Pause /> : <Play />}
           </button>
-          <Slider defaultValue={[100]} max={100} min={1} className=' w-96 flex mb-2' />
+          <Slider defaultValue={[100]} max={100} min={1} className=' w-[500px] mb-2' />
           <audio ref={audioRef} />
         </div>
 
       </div>
 
-      <div className='grid place-content-center'>
-        <Slider defaultValue={[100]} max={100} min={1} className='w-[95px]' />
+      <div className='grid place-content-center items-center flex-col'>
+        <Slider defaultValue={[100]} max={100} min={1} className='w-[120px] flex' />
+
       </div>
 
     </div>

@@ -1,19 +1,17 @@
 import React from 'react';
 import { useParams } from 'react-router-dom' // Importa useParams para obtener la ID de la URL
 import { allPlaylists, songs } from '../lib/data'
-
+import MusicsTable from '../components/MusicsTable';
 
 const PlaylistDetails = () => {
   const { id } = useParams() // Obtiene la ID de la URL
   const playlist = allPlaylists.find((playlist)=>playlist.id===id)
   const playlistSongs = songs.filter((song)=>song.albumId===playlist?.albumId)
+
   console.log(playlist?.color.dark)
 
-  const bgColor = playlist?.color.dark
-  console.log(bgColor)
-
   return (
-    <div className={`flex relative flex-col h-full overflow-x-hidden bg-gradient-to-t from-zinc-900 to-blue-800`}>
+    <div className={`flex relative flex-col h-full overflow-x-hidden bg-gradient-to-t from-zinc-900 to-[${playlist?.color.dark}]`}>
       <header className='flex flex-row my-8'>
         <picture className='mx-6 aspect-square w-52 h-52 flex-none hover:scale-105 transition-all duration-300'>
           <img src={playlist?.cover}
@@ -45,6 +43,9 @@ const PlaylistDetails = () => {
 
         </div>
       </header>
+      <section className='p-6'> 
+        <MusicsTable songs={playlistSongs} />
+      </section>
     </div>
   )
 }

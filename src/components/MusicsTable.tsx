@@ -19,7 +19,7 @@ const MusicsTable: React.FC<Props> = ({songs}) => {
 
             <tbody>
                 {songs.map((song, index) => (
-                    <tr className=" text-gray-300 text-sm font-light hover:bg-white/10 transition-all duration-500 ">
+                    <tr className=" cursor-pointer text-gray-300 text-sm font-light hover:bg-white/10 transition-all duration-500 ">
                         <td className="px-4 py-2 rounded-s-lg">{index + 1}</td>
                         <td className="px-4 py-2 flex gap-3">
                             <picture>
